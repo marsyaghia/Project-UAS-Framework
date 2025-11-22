@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Activity Logs List</title>
+</head>
+<body>
+<h1>Activity Logs List</h1>
+<a href="{% url 'activitylog-create' %}">Add New Activity Log</a>
+<ul>
+    {% for log in object_list %}
+    <li>
+        <strong>{{ log.timestamp }}</strong> 
+        (Task: {{ log.task.title }}) - {{ log.message }}
+    </li>
+    {% empty %}
+    <li>There is no activity for this task yet.</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

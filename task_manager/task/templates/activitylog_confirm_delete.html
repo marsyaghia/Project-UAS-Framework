@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Activity Log</title>
+</head>
+<body>
+    <h1>Delete Activity Log</h1>
+    <p>Are You Sure Want to Delete This Activity Log
+       <strong>{{ object.title }}</strong>?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+        <a href="{% url 'activitylog-list' %}">Cancel</a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Task List</title>
+</head>
+
+<body>
+    <h1>Task List</h1>
+
+    <a href="{% url 'task-create' %}">Add New Task</a>
+
+    <ul>
+        {% for task in object_list %}
+        <li>
+            <a href="{% url 'task-detail' task.pk %}">
+                {{ task.title }} - Deadline: {{ task.deadline }}
+            </a>
+        </li>
+        {% empty %}
+        <li>Belum ada task yang terdaftar</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

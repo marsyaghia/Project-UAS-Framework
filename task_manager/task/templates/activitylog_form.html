@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Activity Log</title>
+</head>
+<body>
+    <h1> {{view.title}} Add New Activity Log</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <p><a href="{% url 'activitylog-list' %}">Cancel</a></p>
+</body>
+</html>

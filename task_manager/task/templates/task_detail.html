@@ -19,25 +19,22 @@
         <li><strong>Title:</strong> {{ object.title }}</li>
         <li><strong>Description:</strong> {{ object.description }}</li>
         <li><strong>Deadline:</strong> {{ object.deadline }}</li>
-        <li><strong>Status:</strong> 
+        <li><strong>Status:</strong>
             {% if object.is_pending %}
-                Pending
+            Pending
             {% else %}
-                Done
+            Done
             {% endif %}
         </li>
     </ul>
 
     <hr>
-    <h2>Activity Log</h2>
-
+    <h3>Activity Log:</h3>
     <ul>
-        {% for log in object.logs.all %}
-            <li>
-                <strong>{{ log.timestamp }}:</strong> {{ log.message }}
-            </li>
+        {% for log in logs %}
+        <li>{{ log.timestamp }} - {{ log.message }}</li>
         {% empty %}
-            <li>Belum ada aktivitas untuk task ini.</li>
+        <li>No logs yet.</li>
         {% endfor %}
     </ul>
 

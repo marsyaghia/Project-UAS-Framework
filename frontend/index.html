@@ -1,125 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="img/ico.png" type="image/png">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css?v=1.3" />
+    <link rel="icon" href="img/ico.png" type="image/png" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
     <title>Task Manager</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="overlay">
-        <div class="loader"></div>
+      <div class="loader"></div>
     </div>
 
     <div class="home">
-        <div class="container-main">
+      <div class="container-main">
+        <!-- Left Sidebar -->
+        <div class="container-left" id="containerLeft">
+          <div class="dots">
+            <div id="d1"></div>
+            <div id="d2"></div>
+            <div id="d3"></div>
+          </div>
 
-            <!-- Left Sidebar -->
-            <div class="container-left" id="containerLeft">
-                <div class="dots">
-                    <div id="d1"></div>
-                    <div id="d2"></div>
-                    <div id="d3"></div>
-                </div>
-
-                <div class="profile center top">
-                    <img src="img\profile.png" alt="">
-                    <div>
-                        <p class="name" id="name">Marsya Ghia A.F</p>
-                        <p class="desc" id="desc">Project UAS</p>
-                    </div>
-                </div>
-
-                <div class="menu center">
-                    <div class="search-holder">
-                        <input type="search" id="search" placeholder=" Search">
-                    </div>
-                    <div class="list">
-                        <ul>
-                            <li id="o1"><a href="#"><i class='bx bx-grid'></i><span>This week</span></a></li>
-                            <li id="o2"><a href="#"><i class='bx bx-calendar-event'></i><span>This month</span></a></li>
-                            <li id="o3"><a href="#"><i class='bx bx-extension'></i><span>All tasks</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="logout center">
-                    <hr>
-                    <a href="#" id="logoutLink"><i class='bx bx-log-out'></i><span>Logout</span></a>
-                </div>
+          <div class="profile center top">
+            <img src="img\profile.png" alt="" />
+            <div>
+              <p class="name" id="name">Marsya Ghia A.F</p>
+              <p class="desc" id="desc">Project UAS</p>
             </div>
+          </div>
 
-            <!-- Right Task Area -->
-            <div class="container-right">
-
-                <div class="hamburger-container">
-                    <div class="burger" id="burgerIcon">
-                        <div class="line"></div>
-                        <div class="line"></div>
-                        <div class="line"></div>
-                    </div>
-                </div>
-
-                <div class="container-sub center">
-                    <div class="header">
-                        <h2 id="header_title">My Tasks</h2>
-                        <div class="buttons"></div>
-                    </div>
-
-                    <!-- PLACE WHERE TASKS APPEAR -->
-                    <div class="card-holder" id="TaskContainer">
-                        <p>Memuat data...</p>
-                    </div>
-
-                    <!-- ADD NEW TASK -->
-                    <div class="add-new">
-                        <div class="card-new align">
-                            <div class="group1">
-                                <div style="width: 70%;">
-                                    <i class='bx bx-plus'></i>
-                                    <input type="text" id="title" name="title" placeholder="Task title" required>
-                                </div>
-                                <div>
-                                    <input type="datetime-local" id="deadline" name="deadline">
-                                </div>
-                            </div>
-                            <div class="group1" style="margin-top:8px;">
-                                <div style="width: 70%;">
-                                    <textarea id="description" name="description" placeholder="Description (optional)" rows="2"></textarea>
-                                </div>
-                                <div>
-                                    <select id="status" name="status">
-                                        <option value="pending" selected>Pending</option>
-                                        <option value="in_progress">In Progress</option>
-                                        <option value="done">Done</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div style="margin-top:8px; text-align:right;">
-                                <button id="addTaskBtn">Add</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+          <div class="menu center">
+            <div class="search-holder">
+              <input type="search" id="search" placeholder=" Search" />
             </div>
+            <div class="list">
+              <ul>
+                <li id="o1">
+                  <a href="#"
+                    ><i class="bx bx-grid"></i><span>This week</span></a
+                  >
+                </li>
+                <li id="o2">
+                  <a href="#"
+                    ><i class="bx bx-calendar-event"></i
+                    ><span>This month</span></a
+                  >
+                </li>
+                <li id="o3">
+                  <a href="#"
+                    ><i class="bx bx-extension"></i><span>All tasks</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
 
+          <div class="logout center">
+            <hr />
+            <a href="#" id="logoutLink"
+              ><i class="bx bx-log-out"></i><span>Logout</span></a
+            >
+          </div>
         </div>
+
+        <!-- Right Task Area -->
+        <div class="container-right">
+          <div class="hamburger-container">
+            <div class="burger" id="burgerIcon">
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line"></div>
+            </div>
+          </div>
+
+          <div class="container-sub center">
+            <div class="header">
+              <h2 id="header_title">My Tasks</h2>
+              <div class="buttons">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+
+            <!-- PLACE WHERE TASKS APPEAR -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                      Modal title
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">...</div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                      Save changes
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cardtemp-holder" id="TaskContainer">
+              <p>Memuat data...</p>
+            </div>
+
+            <!-- ADD NEW TASK -->
+            <div class="add-new">
+              <div class="cardtemp-new align">
+                <div class="group1">
+                  <div style="width: 70%">
+                    <i class="bx bx-plus"></i>
+                    <input
+                      type="text"
+                      id="title"
+                      class="form-control"
+                      name="title"
+                      placeholder="Task title"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="datetime-local"
+                      id="deadline"
+                      name="deadline"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+                <div class="group1">
+                  <div style="width: 70%">
+                    <textarea
+                      id="description"
+                      name="description"
+                      class="form-control"
+                      placeholder="Description (optional)"
+                      rows="1"
+                    ></textarea>
+                  </div>
+                  <div>
+                    <select id="status" class="form-control" name="status">
+                      <option value="pending" selected>Pending</option>
+                      <option value="in_progress">In Progress</option>
+                      <option value="done">Done</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <script src="app.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+      integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js?v=1.1"></script>
     <script>
-        window.addEventListener('load', function () {
-            document.getElementById('overlay').style.display = 'none';
-        });
+      window.addEventListener("load", function () {
+        document.getElementById("overlay").style.display = "none";
+      });
     </script>
-
-</body>
+  </body>
 </html>
